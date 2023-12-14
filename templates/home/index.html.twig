@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nicook | Index{% endblock %}
+
+{% block body %}
+    <div class="w-100">
+        {% if Recipes is defined %}
+            {% for recipe in Recipes %}
+                <div class="rounded bg-light w-70">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="{{ recipe.ImgLink }}" alt="{{ recipe.title }}" class="img-fluid">
+                        </div>
+                        <div class="col-8">
+                            <h2>{{ recipe.title }}</h2>
+                            <p>{{ recipe.description }}</p>
+                            <a href="#" class="btn btn-primary">Voir la
+                                recette</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

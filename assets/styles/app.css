@@ -1,3 +1,7 @@
+.activeIndex {
+    color: red;
+}
+
 body {
-    background-color: skyblue;
+    background-color: #f9fbff;
 }
