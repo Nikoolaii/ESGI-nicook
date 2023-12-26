@@ -2,19 +2,19 @@
 This repo is a project made for the ESGI school.
 The aim is to discover Symfony by creating a recipe website with user management.
 
-## Installation (if needed)
-
-Installation instruction
-
+## Installation
 ```bash
 (installation code)
 ```
 
+## Usage
+```bash
+(usage code)
+```
+
 ## Build With
 
-- ![https://img.shields.io/badge/Symfony-000000?style=for-the-badge&logo=Symfony&logoColor=white](https://img.shields.io/badge/Symfony-000000?style=for-the-badge&logo=Symfony&logoColor=white)
-
-- ![https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+![https://img.shields.io/badge/Symfony-000000?style=for-the-badge&logo=Symfony&logoColor=white](https://img.shields.io/badge/Symfony-000000?style=for-the-badge&logo=Symfony&logoColor=white) ![https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
 
 ## Contributing
 
