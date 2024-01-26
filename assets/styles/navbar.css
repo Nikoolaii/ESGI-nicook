@@ -11493,7 +11493,7 @@ h1, h2, h3, h4, h5,
     height: 100%;
     bottom: 0;
     left: 0;
-    background-color: #f1bc31;
+    background-color: #dc3545;
     visibility: hidden;
     -webkit-transform: scaleX(0);
     -ms-transform: scaleX(0);
@@ -11510,7 +11510,7 @@ h1, h2, h3, h4, h5,
 
 .ftco-navbar-light .navbar-nav > .nav-item > .nav-link:hover:before {
     visibility: visible;
-    background-color: #f1bc31;
+    background-color: #dc3545;
     -webkit-transform: scaleX(1);
     -ms-transform: scaleX(1);
     transform: scaleX(1);
@@ -11566,7 +11566,7 @@ h1, h2, h3, h4, h5,
 
 .ftco-navbar-light .navbar-nav > .nav-item.cta > a {
     color: #fff;
-    background: #f1bc31;
+    background: #dc3545;
     border-radius: 0px;
 }
 
@@ -11591,7 +11591,7 @@ h1, h2, h3, h4, h5,
 
 .ftco-navbar-light .navbar-nav > .nav-item.active > a:before {
     visibility: visible;
-    background-color: #f1bc31;
+    background-color: #dc3545;
     -webkit-transform: scaleX(1);
     -ms-transform: scaleX(1);
     transform: scaleX(1);
@@ -11599,7 +11599,7 @@ h1, h2, h3, h4, h5,
 
 @media (max-width: 991.98px) {
     .ftco-navbar-light .navbar-nav > .nav-item.active > a {
-        color: #f1bc31;
+        color: #dc3545;
     }
 
     .ftco-navbar-light .navbar-nav > .nav-item.active > a:before {
@@ -11657,8 +11657,8 @@ h1, h2, h3, h4, h5,
 }
 
 .social-media p a:hover {
-    background: #f1bc31;
-    border-color: #f1bc31;
+    background: #dc3545;
+    border-color: #a62c38;
 }
 
 .social-media p a:hover span {

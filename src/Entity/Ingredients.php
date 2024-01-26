@@ -21,9 +21,6 @@ class Ingredients
     #[ORM\ManyToMany(targetEntity: Recipes::class, inversedBy: 'ingredients')]
     private Collection $recipe_id;
 
-    #[ORM\Column(length: 255)]
-    private ?string $quantity = null;
-
     public function __construct()
     {
         $this->recipe_id = new ArrayCollection();
@@ -66,18 +63,6 @@ class Ingredients
     public function removeRecipeId(Recipes $recipeId): static
     {
         $this->recipe_id->removeElement($recipeId);
-
-        return $this;
-    }
-
-    public function getQuantity(): ?string
-    {
-        return $this->quantity;
-    }
-
-    public function setQuantity(string $quantity): static
-    {
-        $this->quantity = $quantity;
 
         return $this;
     }

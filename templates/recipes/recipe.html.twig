@@ -1,13 +1,13 @@
-{% extends 'base.html.twig' %}
+{% extends '../base.html.twig' %}
 
 {% block body %}
     <div class="mt-5 d-flex align-items-center justify-content-center flex-column">
-        <div class="main_div">
+        <div class="main_div shadow">
             <h1 class="text-center">{{ Recipe.title }}</h1>
-            <img src="{{ Recipe.ImgLink }}" alt="{{ Recipe.title }}" class="img_recipe" width="20%">
+            <img src="{{ Recipe.ImgLink }}" alt="{{ Recipe.title }}" class="img_recipe" class="img-fluid ">
             <p class="text-center">{{ Recipe.description }}</p>
-            {# Gestion des ingrédients #}
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center flex-column">
+                {# Gestion des ingrédients #}
                 <div class="ingredients">
                     <h2 class="text-center">Ingrédients</h2>
                     <ul>
@@ -16,6 +16,7 @@
                         {% endfor %}
                     </ul>
                 </div>
+
                 {# Gestion des outils  #}
                 <div class="tools">
                     <h2 class="text-center">Outils</h2>
@@ -25,14 +26,20 @@
                         {% endfor %}
                     </ul>
                 </div>
+
                 {# Gestion des étapes #}
                 <div class="steps">
                     <h2 class="text-center">Etapes</h2>
-                    <ul>
-                        {% for step in Recipe.steps %}
-                            <li>{{ step.stepNb }}</li>
-                        {% endfor %}
-                    </ul>
+                    {% for step in Recipe.steps %}
+                        <div class="d-flex bg-light my-3 rounded shadow">
+                            <p class="text-center font-weight-bold w-25">Etape {{ step.stepNb }} : </p>
+                            <p class="ml-2 w-75">{{ step.description }}
+                                loreamazkazfazklfjazkfjazlkfjaklfjaklzfjazlkfjalzkfjazklfj
+                                kzjflazkjfalkfjazlkfjazlkfjazlkfj lkzjflkazjflazkfjazlfjazklfjazlfjazlk
+                                jfalkzjflzajflkazjflkzajflkajfl jzflkjafkljzakfjazlfkjzlkjzlakjf
+                                zfjzalkjflzjfjazlfzjzal </p>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
