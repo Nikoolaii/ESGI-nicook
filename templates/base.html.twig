@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <title>{% block title %}Nicook | {{ PageName }}{% endblock %}</title>
     <link rel="icon"
           href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
     {% block stylesheets %}
@@ -10,6 +10,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
               crossorigin="anonymous">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"
+              type="text/css">
     {% endblock %}
 
     {% block javascripts %}
@@ -17,24 +19,117 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
                 crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+                integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function () {
+                $('.navbar-toggler').on('click', function () {
+                    alert('ok');
+                    $('.navbar-collapse').toggleClass('show');
+                    $('.navbar-toggler').toggleClass('collapsed');
+                });
+            });
+
+        </script>
     {% endblock %}
 </head>
 <body>
-<nav class="navbar navbar-expand navbar-light bg-light">
-    <a class="navbar-brand ml-2" href="/"><img src="{{ asset('img/logo.png') }}" class="w-25"> </a>
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" href="#">Accueil</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/recipes">Recettes</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="account">Mon
-                compte</a>
-        </li>
-    </ul>
-</nav>
+{# <nav class="navbar navbar-expand navbar-light"> #}
+{#    <a class="navbar-brand ml-2" href="/"><img src="{{ asset('img/logo.png') }}" class="w-25"></a> #}
+{#    <ul class="navbar-nav"> #}
+{#        <li class="nav-item"> #}
+{#            <a class="nav-link" href="/">Accueil</a> #}
+{#        </li> #}
+{#        <li class="nav-item"> #}
+{#            <a class="nav-link" href="/recipes">Recettes</a> #}
+{#        </li> #}
+{#        {% if app.user %} #}
+{#            <li class="nav-item"> #}
+{#                <a class="nav-link" href="/account">Mon compte</a> #}
+{#            </li> #}
+{#        {% endif %} #}
+{#    </ul> #}
+{#    <br/> #}
+{#    <form class="form-inline flex-nowrap d-flex ml-6" method="get" action="/search"> #}
+{#        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search" name="query"> #}
+{#        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button> #}
+{#    </form> #}
+{#    {% if app.user %} #}
+{#        <a class="btn btn-outline-danger ml-2" href="/logout">Déconnexion</a> #}
+{#    {% else %} #}
+{#        <a class="btn btn-outline-primary ml-2" href="/login">Connexion</a> #}
+{#        <a class="btn btn-outline-primary ml-2" href="/register">Inscription</a> #}
+{#    {% endif %} #}
+{# </nav> #}
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col">
+                <a class="navbar-brand" href="index.html">Nicook <span>Recipes</span></a>
+            </div>
+            <div class="col d-flex justify-content-end">
+                <div class="social-media">
+                    <p class="mb-0 d-flex">
+                        {% if app.user %}
+                            <a href="/account"
+                               class="d-flex align-items-center justify-content-center"><span
+                                        class="fa-solid fa-user"><i class="sr-only">Mon compte</i></span></a>
+                            <a href="/logout"
+                               class="d-flex align-items-center justify-content-center"><span
+                                        class="fa-solid fa-right-from-bracket"><i
+                                            class="sr-only">Déconnexion</i></span></a>
+                        {% else %}
+                            <a href="/login" class="d-flex align-items-center justify-content-center"><span
+                                        class="fa-solid fa-right-to-bracket"><i
+                                            class="sr-only">Connexion</i></span></a>
+                            <a href="/register" class="d-flex align-items-center justify-content-center"
+                               style="width: auto; border-radius: 15px;"><span>S'inscrire</span></a>
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                    aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fa fa-bars"></span> Menu
+            </button>
+            <form action="#" class="searchform order-lg-last">
+                <div class="form-group d-flex">
+                    <input type="text" class="form-control pl-3" placeholder="Search">
+                    <button type="submit" placeholder="" class="form-control search"><span class="fa fa-search"></span>
+                    </button>
+                </div>
+            </form>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item {% if PageName == 'Accueil' %} active {% endif %}"><a href="/" class="nav-link">Accueil</a>
+                    </li>
+                    {#                    <li class="nav-item dropdown"> #}
+                    {#                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" #}
+                    {#                           aria-haspopup="true" aria-expanded="false">Page</a> #}
+                    {#                        <div class="dropdown-menu" aria-labelledby="dropdown04"> #}
+                    {#                            <a class="dropdown-item" href="#">Page 1</a> #}
+                    {#                            <a class="dropdown-item" href="#">Page 2</a> #}
+                    {#                            <a class="dropdown-item" href="#">Page 3</a> #}
+                    {#                            <a class="dropdown-item" href="#">Page 4</a> #}
+                    {#                        </div> #}
+                    {#                    </li> #}
+                    <li class="nav-item {% if PageName == 'Recettes' %} active {% endif %} "><a href="/recipes"
+                                                                                                class="nav-link">Recettes</a>
+                    </li>
+                    {% if app.user %}
+                        <li class="nav-item"><a href="/account" class="nav-link">Mon compte</a></li>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END nav -->
+</section>
 {% block body %}{% endblock %}
 </body>
 </html>

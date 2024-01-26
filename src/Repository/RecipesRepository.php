@@ -45,4 +45,15 @@ class RecipesRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+    public function findBySearch($params): array
+    {
+        return $this->createQueryBuilder('r')
+            ->andWhere('r.title LIKE :val')
+            ->orWhere('r.description LIKE :val')
+            ->setParameter('val', '%' . $params . '%')
+            ->orderBy('r.id', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
 }
