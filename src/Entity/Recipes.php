@@ -35,15 +35,11 @@ class Recipes
     #[ORM\ManyToMany(targetEntity: Users::class, mappedBy: 'favorite')]
     private Collection $users;
 
-    #[ORM\ManyToMany(targetEntity: Ingredients::class, mappedBy: 'recipe_id')]
-    private Collection $ingredients;
-
     #[ORM\OneToMany(mappedBy: 'recipe_id', targetEntity: Steps::class)]
     private Collection $steps;
 
     #[ORM\ManyToMany(targetEntity: Tools::class, mappedBy: 'recipe')]
     private Collection $tools;
-
 
     public function __construct()
     {
@@ -52,6 +48,7 @@ class Recipes
         $this->ingredients = new ArrayCollection();
         $this->steps = new ArrayCollection();
         $this->tools = new ArrayCollection();
+        $this->recipesIngredients = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -141,33 +138,6 @@ class Recipes
     {
         if ($this->users->removeElement($user)) {
             $user->removeFavorite($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Ingredients>
-     */
-    public function getIngredients(): Collection
-    {
-        return $this->ingredients;
-    }
-
-    public function addIngredient(Ingredients $ingredient): static
-    {
-        if (!$this->ingredients->contains($ingredient)) {
-            $this->ingredients->add($ingredient);
-            $ingredient->addRecipeId($this);
-        }
-
-        return $this;
-    }
-
-    public function removeIngredient(Ingredients $ingredient): static
-    {
-        if ($this->ingredients->removeElement($ingredient)) {
-            $ingredient->removeRecipeId($this);
         }
 
         return $this;

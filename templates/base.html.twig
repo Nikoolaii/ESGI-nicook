@@ -38,7 +38,7 @@
     <div class="container">
         <div class="row justify-content-between">
             <div class="col">
-                <a class="navbar-brand" href="index.html">Nicook <span>Recipes</span></a>
+                <a class="navbar-brand" href="/">Nicook <span>Recipes</span></a>
             </div>
             <div class="col d-flex justify-content-end">
                 <div class="social-media">
@@ -94,7 +94,9 @@
                                                                                                 class="nav-link">Recettes</a>
                     </li>
                     {% if app.user %}
-                        <li class="nav-item"><a href="/account" class="nav-link">Mon compte</a></li>
+                        <li class="nav-item  {% if PageName == 'Ajouter une recette' %} active {% endif %}"><a
+                                    href="/create"
+                                    class="nav-link">Ajouter une recette</a></li>
                         </li>
                     {% endif %}
                 </ul>
@@ -104,5 +106,16 @@
     <!-- END nav -->
 </section>
 {% block body %}{% endblock %}
+
+<!-- Footer -->
+<footer class="bg-white">
+    <!-- Copyrights -->
+    <div class="bg-dark py-4">
+        <div class="container text-center">
+            <p class="text-muted mb-0 py-2 text-light">© 2024 Nikolaï LEMERRE All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+<!-- End -->
 </body>
 </html>

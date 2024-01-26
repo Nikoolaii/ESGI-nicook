@@ -8,7 +8,6 @@ body {
 
 .navbar {
     background-color: #fff;
-    border-bottom: 2px solid #ebebeb;
 }
 
 .pagination * {
@@ -79,4 +78,18 @@ body {
     width: 100%;
     height: 700px;
     object-fit: cover;
+}
+
+.customBg {
+    background-image: url("https://static.vecteezy.com/ti/photos-gratuite/p1/3823542-epices-a-utiliser-comme-ingredients-de-cuisine-sur-un-fond-en-bois-avec-des-legumes-frais-aliments-sains-herbes-legumes-bio-sur-la-table-matieres-premieres-de-cuisine-preparation-tom-miam-gratuit-photo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    max-height: 50vh;
+    width: 100%;
+    height: 100%;
+}
+
+.customBg > * {
+    z-index: 1;
 }

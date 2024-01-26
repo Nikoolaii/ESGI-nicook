@@ -1,25 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div class="customBg d-flex align-items-center h-75">
+        <div class="w-50 h-25 px-2">
+            <img src="{{ asset('img/logo.png') }}">
+        </div>
+
+        <div class="w-50 h-25 px-2">
+            <h1 class="text-center text-white">Les meilleurs recettes pour les meilleurs cuisiniers.<br/> Partagez vos
+                recettes et profitez de celles du monde entier</h1>
+        </div>
+    </div>
     <section class="bg-light py-4 my-2">
+        <h1 class="text-center">Les dernières recettes</h1>
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    {% if PageName == 'Accueil' %}
-                        <h1 class="text-center mb-3 text-danger">Bienvenue sur Nicook</h1>
-                    {% endif %}
-                    {% if PageName == 'Recherche' %}
-                        <h1 class="text-center mb-3 text-danger">Résultat de votre recherche</h1>
-                    {% endif %}
-                    {% if PageName == 'Recettes' %}
-                        <h1 class="text-center mb-3 text-danger">Toutes les recettes</h1>
-                    {% endif %}
-                </div>
-
                 {% if Recipes is defined %}
                     {% for recipe in Recipes %}
                         <div class="col-md-6 col-lg-4">
-
                             <div class="card my-3 shadow">
                                 <div class="card-thumbnail">
                                     <img src="{{ recipe.imgLink }}"

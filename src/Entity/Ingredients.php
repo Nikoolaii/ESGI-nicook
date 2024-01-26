@@ -24,6 +24,7 @@ class Ingredients
     public function __construct()
     {
         $this->recipe_id = new ArrayCollection();
+        $this->recipesIngredients = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -39,30 +40,6 @@ class Ingredients
     public function setName(string $name): static
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Recipes>
-     */
-    public function getRecipeId(): Collection
-    {
-        return $this->recipe_id;
-    }
-
-    public function addRecipeId(Recipes $recipeId): static
-    {
-        if (!$this->recipe_id->contains($recipeId)) {
-            $this->recipe_id->add($recipeId);
-        }
-
-        return $this;
-    }
-
-    public function removeRecipeId(Recipes $recipeId): static
-    {
-        $this->recipe_id->removeElement($recipeId);
 
         return $this;
     }

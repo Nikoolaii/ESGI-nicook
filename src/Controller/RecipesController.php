@@ -18,10 +18,10 @@ class RecipesController extends AbstractController
         $pagination = $paginator->paginate(
             $entityManager->getRepository(Recipes::class)->findBy([], ['createdAt' => 'DESC']),
             $request->query->get('page', 1),
-            10
+            12
         );
 
-        return $this->render('home/index.html.twig', [
+        return $this->render('recipes/recipes.html.twig', [
             'controller_name' => 'RecipesController',
             'Recipes' => $pagination,
             'PageName' => 'Recettes',
@@ -34,7 +34,7 @@ class RecipesController extends AbstractController
         $params = $_GET['query'];
         $recipes = $entityManager->getRepository(Recipes::class)->findBySearch($params);
 
-        return $this->render('home/index.html.twig', [
+        return $this->render('recipes/recipe.html.twig', [
             'controller_name' => 'RecipesController',
             'Recipes' => $recipes,
             'PageName' => 'Recherche',
@@ -53,12 +53,12 @@ class RecipesController extends AbstractController
         ]);
     }
 
-    #[Route('/recipe/create', name: 'app_recipe_create')]
+    #[Route('/create', name: 'app_recipe_create')]
     public function recipeCreate(EntityManagerInterface $entityManager): Response
     {
-        return $this->render('home/recipeCreate.html.twig', [
+        return $this->render('recipes/recipeCreate.html.twig', [
             'controller_name' => 'RecipesController',
-            'PageName' => 'Créer une recette',
+            'PageName' => 'Ajouter une recette',
 
         ]);
     }
