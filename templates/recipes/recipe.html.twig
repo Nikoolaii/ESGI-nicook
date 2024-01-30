@@ -3,22 +3,25 @@
 {% block body %}
     <div class="mt-5 d-flex align-items-center justify-content-center flex-column">
         <div class="main_div shadow">
-            <h1 class="text-center">{{ Recipe.title }}</h1>
-            <img src="{{ Recipe.ImgLink }}" alt="{{ Recipe.title }}" class="img_recipe" class="img-fluid ">
-            <p class="text-center">{{ Recipe.description }}</p>
+            <div class="bg-light my-3 rounded shadow">
+                <h1 class="text-center">{{ Recipe.title }}</h1>
+                <img src="{{ Recipe.ImgLink }}" alt="{{ Recipe.title }}"
+                     class="img_recipe img-fluid w-75 mx-auto d-block p-2">
+                <p class="text-center">{{ Recipe.description }}</p>
+            </div>
             <div class="d-flex justify-content-center flex-column">
                 {# Gestion des ingrédients #}
-                <div class="ingredients">
+                <div class="ingredients bg-light my-3 rounded shadow">
                     <h2 class="text-center">Ingrédients</h2>
                     <ul>
-                        {% for ingredient in Recipe.ingredients %}
+                        {% for ingredient in Ingredients %}
                             <li>{{ ingredient.name }}</li>
                         {% endfor %}
                     </ul>
                 </div>
 
                 {# Gestion des outils  #}
-                <div class="tools">
+                <div class="tools bg-light my-3 rounded shadow">
                     <h2 class="text-center">Outils</h2>
                     <ul>
                         {% for tool in Recipe.tools %}
@@ -28,16 +31,12 @@
                 </div>
 
                 {# Gestion des étapes #}
-                <div class="steps">
+                <div class="steps bg-light my-3 rounded shadow">
                     <h2 class="text-center">Etapes</h2>
                     {% for step in Recipe.steps %}
                         <div class="d-flex bg-light my-3 rounded shadow">
                             <p class="text-center font-weight-bold w-25">Etape {{ step.stepNb }} : </p>
-                            <p class="ml-2 w-75">{{ step.description }}
-                                loreamazkazfazklfjazkfjazlkfjaklfjaklzfjazlkfjalzkfjazklfj
-                                kzjflazkjfalkfjazlkfjazlkfjazlkfj lkzjflkazjflazkfjazlfjazklfjazlfjazlk
-                                jfalkzjflzajflkazjflkzajflkajfl jzflkjafkljzakfjazlfkjzlkjzlakjf
-                                zfjzalkjflzjfjazlfzjzal </p>
+                            <p class="ml-2 w-75">{{ step.description }}</p>
                         </div>
                     {% endfor %}
                 </div>

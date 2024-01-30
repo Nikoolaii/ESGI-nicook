@@ -41,14 +41,18 @@ class Recipes
     #[ORM\ManyToMany(targetEntity: Tools::class, mappedBy: 'recipe')]
     private Collection $tools;
 
+    #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: RecipeIngredient::class)]
+    private Collection $recipeIngredients;
+
     public function __construct()
     {
         $this->favorites = new ArrayCollection();
         $this->users = new ArrayCollection();
-        $this->ingredients = new ArrayCollection();
         $this->steps = new ArrayCollection();
         $this->tools = new ArrayCollection();
         $this->recipesIngredients = new ArrayCollection();
+        $this->ingredients = new ArrayCollection();
+        $this->recipeIngredients = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -195,6 +199,36 @@ class Recipes
     {
         if ($this->tools->removeElement($tool)) {
             $tool->removeRecipe($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, RecipeIngredient>
+     */
+    public function getRecipeIngredients(): Collection
+    {
+        return $this->recipeIngredients;
+    }
+
+    public function addRecipeIngredient(RecipeIngredient $recipeIngredient): static
+    {
+        if (!$this->recipeIngredients->contains($recipeIngredient)) {
+            $this->recipeIngredients->add($recipeIngredient);
+            $recipeIngredient->setRecipe($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecipeIngredient(RecipeIngredient $recipeIngredient): static
+    {
+        if ($this->recipeIngredients->removeElement($recipeIngredient)) {
+            // set the owning side to null (unless already changed)
+            if ($recipeIngredient->getRecipe() === $this) {
+                $recipeIngredient->setRecipe(null);
+            }
         }
 
         return $this;

@@ -2,7 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\RecipeIngredient;
 use App\Entity\Recipes;
+use App\Form\RecipeCreateFormType;
+use App\Form\RecipeType;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -45,21 +48,27 @@ class RecipesController extends AbstractController
     public function recipe(EntityManagerInterface $entityManager, $id): Response
     {
         $recipe = $entityManager->getRepository(Recipes::class)->find($id);
+        $ingredientId = $entityManager->getRepository(RecipeIngredient::class)->findBy(['recipe' => $id]);
+
+        $ingredients = [];
+        foreach ($ingredientId as $ingredient) {
+            $ingredients[] = $ingredient->getIngredient();
+        }
 
         return $this->render('recipes/recipe.html.twig', [
             'controller_name' => 'RecipesController',
             'Recipe' => $recipe,
+            'Ingredients' => $ingredients,
             'PageName' => 'Recette n°' . $id,
         ]);
     }
 
     #[Route('/create', name: 'app_recipe_create')]
-    public function recipeCreate(EntityManagerInterface $entityManager): Response
+    public function recipeCreate(EntityManagerInterface $entityManager, Request $request,): Response
     {
         return $this->render('recipes/recipeCreate.html.twig', [
             'controller_name' => 'RecipesController',
             'PageName' => 'Ajouter une recette',
-
         ]);
     }
 }
