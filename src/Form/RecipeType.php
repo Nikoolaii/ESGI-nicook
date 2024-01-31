@@ -15,8 +15,8 @@ class RecipeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('title')
-            ->add('description')
+            ->add('title', null, ['attr' => ['class' => 'form-control'], 'label' => 'Titre'])
+            ->add('description', null, ['attr' => ['class' => 'form-control'], 'label' => 'Description'])
             ->add('recipeImage', FileType::class, [
                 'label' => 'Image (JPG, PNG)',
                 'mapped' => false,
@@ -30,6 +30,10 @@ class RecipeType extends AbstractType
                 'choice_label' => 'name',
                 'multiple' => true,
                 'expanded' => false,
+                'label' => 'Ustensiles (CTRL + clic pour en sélectionner plusieurs)',
+                'attr' => [
+                    'class' => 'form-select form-select-md mb-3',
+                ],
             ]);
     }
 

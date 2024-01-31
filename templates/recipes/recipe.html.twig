@@ -15,7 +15,7 @@
                     <h2 class="text-center">Ingrédients</h2>
                     <ul>
                         {% for ingredient in Ingredients %}
-                            <li>{{ ingredient.name }}</li>
+                            <li>{{ ingredient.0.name }} {{ ingredient.1 }}{{ ingredient.2 }}</li>
                         {% endfor %}
                     </ul>
                 </div>

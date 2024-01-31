@@ -6,19 +6,19 @@
             let counter = 0;
             $('#add-input').click(function () {
                 counter++;
-                $('#ingredients').append('<input type="text" name="ingredient' + counter + '" id="recipe_create_ingredients" class="form-control w-25" placeholder="Ingrédient" required="required">' +
-                    '<input type="number" name="qqt' + counter + '" id="recipe_create_quantities" class="form-control w-25" placeholder="Quantité" required="required">' +
-                    '<input type="text" name="unit' + counter + '" id="recipe_create_units" class="form-control w-25" placeholder="Unité" required="required">' + '<br>');
+                $('#ingredients').append('<input type="text" name="ingredient' + counter + '" id="recipe_create_ingredients" class="form-control" placeholder="Ingrédient" required="required">' +
+                    '<input type="number" name="qqt' + counter + '" id="recipe_create_quantities" class="form-control" placeholder="Quantité" required="required">' +
+                    '<input type="text" name="unit' + counter + '" id="recipe_create_units" class="form-control" placeholder="Unité" required="required">' + '<br>');
             });
 
             let counter2 = 0;
             $('#add-input2').click(function () {
                 counter2++;
-                $('#steps').append('<input type="text" name="step' + counter2 + '" id="recipe_create_steps" class="form-control w-25" placeholder="Etape" required="required">' + '<br>');
+                $('#steps').append('<input type="text" name="step' + counter2 + '" id="recipe_create_steps" class="form-control" placeholder="Etape" required="required">' + '<br>');
             });
         });
     </script>
-    <div class="mt-5 mb-5 d-flex align-items-center justify-content-center flex-column">
+    <div class="mt-5 mb-5 d-flex align-items-center justify-content-center flex-column text-center">
         <div class="main_div shadow">
             <h1>Créer une recette</h1>
             <hr/>
@@ -27,19 +27,20 @@
             {{ form_start(recipeCreateForm, {'attr': {'enctype': 'multipart/form-data'}}) }}
 
             {{ form_row(recipeCreateForm.title) }}
-            {{ form_row(recipeCreateForm.description, {
-                label: 'Description de la recette'
-            }) }}
-            {{ form_row(recipeCreateForm.tools, {
-                label: 'Outils nécessaires'
-            }) }}
+            {{ form_row(recipeCreateForm.description) }}
+            {{ form_row(recipeCreateForm.tools) }}
             {{ form_row(recipeCreateForm.recipeImage) }}
+            <br/>
             <div id="ingredients">
-                <button type="button" id="add-input">Ajouter un ingredient</button>
+                <button type="button" id="add-input" class="btn btn-lg btn-primary">Ajouter un ingredient</button>
+                <br/>
             </div>
+            <br/>
             <div id="steps">
-                <button type="button" id="add-input2">Ajouter une étape</button>
+                <button type="button" id="add-input2" class="btn btn-lg btn-primary">Ajouter une étape</button>
+                <br/>
             </div>
+            <br/>
             <button type="submit" class="btn btn-lg btn-danger">Créer la recette</button>
             {{ form_end(recipeCreateForm) }}
         </div>

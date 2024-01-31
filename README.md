@@ -1,28 +1,54 @@
-# ESGI-nicook
-This repo is a project made for the ESGI school.
-The aim is to discover Symfony by creating a recipe website with user management.
+# Nicook - Recipe Website #
 
-## Installation
-```bash
-(installation code)
-```
+<p align="center">
+   <strong>A website made in symfony to find and create reace.</strong>
+   <strong>A user can create and add in favorite a recipe</strong>
+</p>
 
-## Usage
-```bash
-(usage code)
-```
+<details>
+  <summary><strong>➡️ Screenshots</strong></summary>
+  <br/>
+  <img align="left" src="https://github.com/KoZeuh/WIKI-Project-ESGI/blob/main/img/img1.png" width="280" />
+  <img src="https://github.com/KoZeuh/WIKI-Project-ESGI/blob/main/img/img2.png" width="280" />
+  <br/>
+  <img align="left" src="https://github.com/KoZeuh/WIKI-Project-ESGI/blob/main/img/img3.png" width="280" />
+  <img src="https://github.com/KoZeuh/WIKI-Project-ESGI/blob/main/img/img4.png" width="280" />
+</details>
 
-## Build With
+### Features 🚀
 
-![https://img.shields.io/badge/Symfony-000000?style=for-the-badge&logo=Symfony&logoColor=white](https://img.shields.io/badge/Symfony-000000?style=for-the-badge&logo=Symfony&logoColor=white) ![https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+- 🌐 **Create a recipe**
 
-## Contributing
+- 🔄 **View a recipe**
 
-Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
+- 📊 **Add a recipe in favorite**
 
-Please make sure to update tests as appropriate.
+- Future features :
 
-## License
+- ✏️ **Editing and delete a recipe**
 
-[MIT](https://choosealicense.com/licenses/mit/)
+- 📶 **Admin panel to manage recipe**
+
+## Prerequisites for use 🛠️
+
+- NONE
+
+## Prerequisites for installation 🛠️
+
+- PHP 8.0.X
+- MariaDB 10.10.X
+- Symfony 7.0.X
+
+## How to Run the Project ▶️
+
+1. Clone this repository to your local machine.
+2. Launch the command to import DataFixtures ```php bin/console doctrine:fixtures:load```.
+3. Modify your database connection information. (`./.env -> DATABASE_URL`)
+
+## Authors ✨
+
+[@Nikoolaii](https://github.com/Nikoolaii)
+
+## License 📄
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
