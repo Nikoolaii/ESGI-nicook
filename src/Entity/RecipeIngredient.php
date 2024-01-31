@@ -24,6 +24,9 @@ class RecipeIngredient
     #[ORM\JoinColumn(nullable: false)]
     private ?Ingredients $ingredient = null;
 
+    #[ORM\Column(length: 10, nullable: true)]
+    private ?string $unit = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -61,6 +64,18 @@ class RecipeIngredient
     public function setIngredient(?Ingredients $ingredient): static
     {
         $this->ingredient = $ingredient;
+
+        return $this;
+    }
+
+    public function getUnit(): ?string
+    {
+        return $this->unit;
+    }
+
+    public function setUnit(?string $unit): static
+    {
+        $this->unit = $unit;
 
         return $this;
     }
