@@ -165,4 +165,28 @@ class RecipesController extends AbstractController
             'recipeCreateForm' => $form->createView(),
         ]);
     }
+
+    #[Route('/add_favorite/{id}', name: 'app_recipe_add_favorite')]
+    public function markFavorite(EntityManagerInterface $entityManager, $id): Response
+    {
+        $recipe = $entityManager->getRepository(Recipes::class)->find($id);
+        $user = $this->getUser();
+        $user->addFavorite($recipe);
+        $entityManager->persist($user);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_recipe', ['id' => $id]);
+    }
+
+    #[Route('/remove_favorite/{id}', name: 'app_recipe_remove_favorite')]
+    public function removeFavorite(EntityManagerInterface $entityManager, $id): Response
+    {
+        $recipe = $entityManager->getRepository(Recipes::class)->find($id);
+        $user = $this->getUser();
+        $user->removeFavorite($recipe);
+        $entityManager->persist($user);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_recipe', ['id' => $id]);
+    }
 }

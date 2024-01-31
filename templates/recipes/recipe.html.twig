@@ -4,6 +4,13 @@
     <div class="mt-5 d-flex align-items-center justify-content-center flex-column">
         <div class="main_div shadow">
             <div class="bg-light my-3 rounded shadow">
+                {% if app.user.getFavorite.contains(Recipe) %}
+                    <a href="/remove_favorite/{{ Recipe.id }}" class="btn btn-danger">Retirer des
+                        favoris</a>
+                {% else %}
+                    <a href="/add_favorite/{{ Recipe.id }}" class="btn btn-success">Ajouter aux
+                        favoris</a>
+                {% endif %}
                 <h1 class="text-center">{{ Recipe.title }}</h1>
                 <img src="{{ Recipe.ImgLink }}" alt="{{ Recipe.title }}"
                      class="img_recipe img-fluid w-75 mx-auto d-block p-2">
