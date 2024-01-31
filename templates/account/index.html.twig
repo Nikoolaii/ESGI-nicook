@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="bg-light py-4 my-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center mb-3 text-danger">Vos favoris</h1>
+                </div>
+
+                {% if favorites is defined %}
+                    {% for recipe in favorites %}
+                        <div class="col-md-6 col-lg-4">
+
+                            <div class="card my-3 shadow">
+                                <div class="card-thumbnail">
+                                    <img src="{{ recipe.imgLink }}"
+                                         style="object-fit: cover; width: 100%; height: 400px;"
+                                         alt=" thumbnail">
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="card-title"><a href="/recipe/{{ recipe.id }}"
+                                                              class="text-secondary">{{ recipe.title }}</a></h3>
+                                    <p class="card-text">{{ recipe.description }}</p>
+                                    <a href="/recipe/{{ recipe.id }}" class="btn btn-danger">Voir la recette</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

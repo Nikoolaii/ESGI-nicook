@@ -6,15 +6,15 @@
             let counter = 0;
             $('#add-input').click(function () {
                 counter++;
-                $('#ingredients').append('<input type="text" name="ingredient' + counter + '" id="recipe_create_ingredients" class="form-control" placeholder="Ingrédient" required="required">' +
-                    '<input type="number" name="qqt' + counter + '" id="recipe_create_quantities" class="form-control" placeholder="Quantité" required="required">' +
-                    '<input type="text" name="unit' + counter + '" id="recipe_create_units" class="form-control" placeholder="Unité" required="required">' + '<br>');
+                $('#ingredients').append('<input type="text" name="ingredient' + counter + '" id="recipe_create_ingredients p-2" class="form-control" placeholder="Ingrédient" required="required">' +
+                    '<input type="number" name="qqt' + counter + '" id="recipe_create_quantities" class="form-control p-2" placeholder="Quantité" required="required">' +
+                    '<input type="text" name="unit' + counter + '" id="recipe_create_units" class="form-control p-2" placeholder="Unité" required="required">' + '<br>');
             });
 
             let counter2 = 0;
             $('#add-input2').click(function () {
                 counter2++;
-                $('#steps').append('<input type="text" name="step' + counter2 + '" id="recipe_create_steps" class="form-control" placeholder="Etape" required="required">' + '<br>');
+                $('#steps').append('<input type="text" name="step' + counter2 + '" id="recipe_create_steps" class="form-control p-2" placeholder="Etape" required="required">' + '<br>');
             });
         });
     </script>

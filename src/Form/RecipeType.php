@@ -16,7 +16,7 @@ class RecipeType extends AbstractType
     {
         $builder
             ->add('title', null, ['attr' => ['class' => 'form-control'], 'label' => 'Titre'])
-            ->add('description', null, ['attr' => ['class' => 'form-control'], 'label' => 'Description'])
+            ->add('description', null, ['attr' => ['class' => 'form-control p-2'], 'label' => 'Description'])
             ->add('recipeImage', FileType::class, [
                 'label' => 'Image (JPG, PNG)',
                 'mapped' => false,
