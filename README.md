@@ -42,8 +42,8 @@
 ## How to Run the Project ▶️
 
 1. Clone this repository to your local machine.
-2. Launch the command to import DataFixtures ```php bin/console doctrine:fixtures:load```.
-3. Modify your database connection information. (`./.env -> DATABASE_URL`)
+2. Modify your database connection information. (`./.env -> DATABASE_URL`)
+3. Launch the command to import DataFixtures ```php bin/console doctrine:fixtures:load```.
 
 ## Authors ✨
 
