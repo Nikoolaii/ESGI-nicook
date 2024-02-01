@@ -67,24 +67,27 @@ class RecipesController extends AbstractController
     #[Route('/create', name: 'app_recipe_create')]
     public function recipeCreate(EntityManagerInterface $entityManager, Request $request): Response
     {
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+        }
         $recipe = new Recipes();
         $form = $this->createForm(RecipeType::class, $recipe, ['attr' => ['class' => 'customForm']]);
 
-//        Stock the image in the public folder and get the link
-        $image = $form->get('recipeImage')->getData();
-        if ($image) {
-            $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
-            $newFilename = $originalFilename . '-' . uniqid() . '.' . $image->guessExtension();
-            $image->move(
-                $this->getParameter('recipe_image_directory'),
-                $newFilename
-            );
-        } else {
-            $newFilename = 'https://picsum.photos/700/300';
-        }
-
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+
+//            Stock the image in the public folder and get the link
+            $image = $form->get('recipeImage')->getData();
+            if ($image) {
+                $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFilename = $originalFilename . '-' . uniqid() . '.' . $image->guessExtension();
+                $image->move(
+                    $this->getParameter('recipe_image_directory'),
+                    $newFilename
+                );
+            } else {
+                $newFilename = 'https://picsum.photos/700/300';
+            }
 //          Create the recipe, save in the db and collect the id
             $data = $form->getData();
             $data->setCreatedAt(new \DateTimeImmutable());

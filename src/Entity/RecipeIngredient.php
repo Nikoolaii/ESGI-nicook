@@ -24,7 +24,7 @@ class RecipeIngredient
     #[ORM\JoinColumn(nullable: false)]
     private ?Ingredients $ingredient = null;
 
-    #[ORM\Column(length: 10, nullable: true)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $unit = null;
 
     public function getId(): ?int

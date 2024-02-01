@@ -11,6 +11,9 @@ class UsersController extends AbstractController
     #[Route('/account', name: 'app_users')]
     public function index(): Response
     {
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+        }
         $favorites = $this->getUser()->getFavorite();
 
         return $this->render('account/index.html.twig', [

@@ -8,11 +8,11 @@
 <details>
   <summary><strong>➡️ Screenshots</strong></summary>
   <br/>
-  <img align="left" src="https://github.com/KoZeuh/WIKI-Project-ESGI/blob/main/img/img1.png" width="280" />
-  <img src="https://github.com/KoZeuh/WIKI-Project-ESGI/blob/main/img/img2.png" width="280" />
+  <img align="left" src="https://github.com/Nikoolaii/ESGI-nicook/blob/main/img_readme/img1.png" width="280" />
+  <img src="https://github.com/Nikoolaii/ESGI-nicook/blob/main/img_readme/img2.png" width="280" />
   <br/>
-  <img align="left" src="https://github.com/KoZeuh/WIKI-Project-ESGI/blob/main/img/img3.png" width="280" />
-  <img src="https://github.com/KoZeuh/WIKI-Project-ESGI/blob/main/img/img4.png" width="280" />
+  <img align="left" src="https://github.com/Nikoolaii/ESGI-nicook/blob/main/img_readme/img3.png" width="280" />
+  <img src="https://github.com/Nikoolaii/ESGI-nicook/blob/main/img_readme/img1.png" width="280" />
 </details>
 
 ### Features 🚀
@@ -44,7 +44,7 @@
 
 1. Clone this repository to your local machine.
 2. Modify your database connection information. (`./.env -> DATABASE_URL`).
-3. Import file 'db.sql' to your database (The same name than the ```.env``` file).
+3. Import file ```db.sql``` to your database (The same name than the ```.env``` file).
 4. Do a ```composer i``` to init projet
 5. Launch the command to import DataFixtures ```php bin/console doctrine:fixtures:load```.
 
