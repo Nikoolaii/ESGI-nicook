@@ -37,13 +37,16 @@
 
 - PHP 8.0.X
 - MariaDB 10.10.X
-- Symfony 7.0.X
+- Symfony 7.0.1
+- Composer
 
 ## How to Run the Project ▶️
 
 1. Clone this repository to your local machine.
-2. Modify your database connection information. (`./.env -> DATABASE_URL`)
-3. Launch the command to import DataFixtures ```php bin/console doctrine:fixtures:load```.
+2. Modify your database connection information. (`./.env -> DATABASE_URL`).
+3. Import file 'db.sql' to your database (The same name than the ```.env``` file).
+4. Do a ```composer i``` to init projet
+5. Launch the command to import DataFixtures ```php bin/console doctrine:fixtures:load```.
 
 ## Authors ✨
 
