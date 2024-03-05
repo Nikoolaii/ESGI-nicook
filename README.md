@@ -23,7 +23,7 @@
 
 - 📊 **Add a recipe in favorite**
 
-- Future features :
+Future features :
 
 - ✏️ **Editing and delete a recipe**
 
@@ -47,6 +47,7 @@
 3. Import file ```db.sql``` to your database (The same name than the ```.env``` file).
 4. Do a ```composer i``` to init projet
 5. Launch the command to import DataFixtures ```php bin/console doctrine:fixtures:load```.
+6. Start symfony server with ```symfony server:start -d```
 
 ## Authors ✨
 
