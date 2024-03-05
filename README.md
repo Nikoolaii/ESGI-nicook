@@ -1,7 +1,7 @@
 # Nicook - Recipe Website #
 
 <p align="center">
-   <strong>A website made in symfony to find and create reace.</strong>
+   <strong>A website made in symfony to find and create recipes</strong>
    <strong>A user can create and add in favorite a recipe</strong>
 </p>
 
