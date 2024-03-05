@@ -21,7 +21,7 @@
 
 - 🔄 **View a recipe**
 
-- 📊 **Add a recipe in favorite**
+- ⭐ **Add a recipe in favorite**
 
 Future features :
 
