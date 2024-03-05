@@ -12,7 +12,7 @@
   <img src="https://github.com/Nikoolaii/ESGI-nicook/blob/main/img_readme/img2.png" width="280" />
   <br/>
   <img align="left" src="https://github.com/Nikoolaii/ESGI-nicook/blob/main/img_readme/img3.png" width="280" />
-  <img src="https://github.com/Nikoolaii/ESGI-nicook/blob/main/img_readme/img1.png" width="280" />
+  <img src="https://github.com/Nikoolaii/ESGI-nicook/blob/main/img_readme/img4.png" width="280" />
 </details>
 
 ### Features 🚀
